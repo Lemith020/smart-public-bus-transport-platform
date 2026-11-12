@@ -1,10 +1,12 @@
-# 🚏 NextHalt
+<div align="center">
 
-<img width="1774" height="887" alt="8eef868c-9c7c-4464-b76c-716396ae418d" src="https://github.com/user-attachments/assets/3c5127eb-f181-4cd7-a2dc-67ff57c17d83" />
+# 🚏 <span style="font-size: 2.5em;">NextHalt</span>
+
+<img width="100%" alt="NextHalt Preview" src="https://github.com/user-attachments/assets/3c5127eb-f181-4cd7-a2dc-67ff57c17d83" />
 
 ---
 
-### Know where your bus is. Tell the driver you are waiting at the halt.
+### **Know where your bus is. Tell the driver you are waiting at the halt.**
 
 An Android app and a backend server that connect passengers and bus drivers in real time.
 
