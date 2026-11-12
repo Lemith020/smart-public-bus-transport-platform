@@ -15,6 +15,7 @@ An Android app and a backend server that connect passengers and bus drivers in r
 🚧 **Status: Under development**
 
 </div>
+
 ---
 
 ## 📑 Table of Contents
