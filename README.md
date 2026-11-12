@@ -1,6 +1,10 @@
-<div align="center">
+<img width="1774" height="887" alt="8eef868c-9c7c-4464-b76c-716396ae418d" src="https://github.com/user-attachments/assets/f53f81a1-7207-40d7-a494-db815d290a62" /><div align="center">
 
 # 🚏 NextHalt
+
+<img width="1774" height="887" alt="8eef868c-9c7c-4464-b76c-716396ae418d" src="https://github.com/user-attachments/assets/3c5127eb-f181-4cd7-a2dc-67ff57c17d83" />
+
+---
 
 ### Know where your bus is. Tell the driver you are waiting at the halt.
 
