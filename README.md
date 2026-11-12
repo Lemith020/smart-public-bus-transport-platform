@@ -884,7 +884,7 @@ docker compose up -d db
 |---|---|---|
 | 🎨 UI/UX Designer | Pages, components, design tokens (Figma) | Dulana Chathurma |
 | 🖥️ Backend Developer | Ktor server, database, API, project structure | W.D.Lemith  Nanditha |
-| 📱 Android Developer | Compose screens, features | Dulana Chathurma & W.D.Lemith  Nanditha |
+| 📱 Android Developer | Compose screens, features |W.D.Lemith  Nanditha &   Dulana Chathurma  |
 
 ### Git Workflow
 - `main`: stable, release
