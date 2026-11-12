@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚌 Bus Tracker
+# 🚏 NextHalt
 
 ### Know where your bus is. Tell the driver you are waiting at the halt.
 
