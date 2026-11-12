@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚌 Bus Tracker
+# 🚏 NextHalt
 
 ### Know where your bus is. Tell the driver you are waiting at the halt.
 
@@ -11,7 +11,6 @@ An Android app and a backend server that connect passengers and bus drivers in r
 🚧 **Status: Under development**
 
 </div>
-
 ---
 
 ## 📑 Table of Contents
