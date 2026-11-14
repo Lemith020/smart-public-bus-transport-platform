@@ -46,6 +46,7 @@ An Android app and a backend server that connect passengers and bus drivers in r
     <img src="https://github.com/user-attachments/assets/ddebe7a8-b4aa-49ca-ba7e-bbd7ff1fdada" alt="NextHalt UI Concept 2" width="260" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
   </div>
 </div>
+
 ### The problem
 - A passenger does not know **where the bus is** or **when it will come**.
 - A driver does not know **how many people are waiting** at the next halts.
