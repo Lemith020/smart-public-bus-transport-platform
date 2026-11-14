@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">NextHalt</string>
+    <string name="app_name">NextHaltApp</string>
+    <string name="brand_next">Next</string>
+    <string name="brand_halt">Halt</string>
+    <string name="sinhala_tagline">වේගවත් ගමනකට</string>
+    <string name="english_subtitle">Your Smart Transit Companion</string>
+    <string name="logo_content_description">NextHalt Logo</string>
+    <string name="bushalt_bg_content_description">Bushalt Background</string>
+    <string name="dot_content_description">Loading dot</string>
 </resources>

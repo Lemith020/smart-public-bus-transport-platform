@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".SplashActivity">
+
+    <!-- Step 1 (First 2 Seconds): Solid black background displaying centered logo -->
+    <RelativeLayout
+        android:id="@+id/layoutStep1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/imgStep1Logo"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/logo_content_description"
+            android:src="@drawable/bus_tracker_logo" />
+
+    </RelativeLayout>
+
+    <!-- Step 2 (Next 4 Seconds): Full branding view with NextHalt logo, title, tagline & animated loading dots -->
+    <RelativeLayout
+        android:id="@+id/layoutStep2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <!-- Background Image bushalt.jpg -->
+        <ImageView
+            android:id="@+id/imgBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/bushalt_bg_content_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bushalt" />
+
+        <!-- Subtle dark overlay -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#40000000" />
+
+        <!-- Main Content Overlay -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Top Header: Centered circular logo & Brand title 'NextHalt' -->
+            <LinearLayout
+                android:id="@+id/topHeaderSection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="90dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgStep2Logo"
+                    android:layout_width="165dp"
+                    android:layout_height="165dp"
+                    android:contentDescription="@string/logo_content_description"
+                    android:src="@drawable/bus_tracker_logo" />
+
+                <!-- Brand Title Layout: 'Next' in bright red (#FF1744), 'Halt' in pure white (#FFFFFF), and pin logo -->
+                <LinearLayout
+                    android:id="@+id/layoutBrandTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvBrandNext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/brand_next"
+                        android:textColor="#FF1744"
+                        android:textSize="60sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvBrandHalt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/brand_halt"
+                        android:textColor="#FFFFFF"
+                        android:textSize="60sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/imgInlineLogo"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="@string/logo_content_description"
+                        android:src="@drawable/ic_bus_location_pin" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Bottom Section: Taglines -->
+            <LinearLayout
+                android:id="@+id/bottomTaglineSection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSinhalaTagline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sinhala_tagline"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvEnglishSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/english_subtitle"
+                    android:textColor="#D0D0D0"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <!-- Animated Loading Dots -->
+            <LinearLayout
+                android:id="@+id/layoutLoadingDots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/bottomTaglineSection"
+                android:layout_below="@id/topHeaderSection"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/dot1"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/dot_content_description"
+                    android:src="@drawable/dot_active" />
+
+                <ImageView
+                    android:id="@+id/dot2"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/dot_content_description"
+                    android:src="@drawable/dot_inactive" />
+
+                <ImageView
+                    android:id="@+id/dot3"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:contentDescription="@string/dot_content_description"
+                    android:src="@drawable/dot_inactive" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
