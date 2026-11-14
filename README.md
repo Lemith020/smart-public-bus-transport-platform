@@ -39,6 +39,10 @@ An Android app and a backend server that connect passengers and bus drivers in r
 ---
 
 ## 1. 🎯 About the Project
+<img width="583" height="1260" alt="WhatsApp Image 2026-11-15 at 01 07 00" src="https://github.com/user-attachments/assets/83b18f11-549d-40c9-b3f5-b179272f7410" />
+
+<img width="676" height="1442" alt="WhatsApp Image 2026-11-15 at 01 07 01" src="https://github.com/user-attachments/assets/ddebe7a8-b4aa-49ca-ba7e-bbd7ff1fdada" />
+
 
 ### The problem
 - A passenger does not know **where the bus is** or **when it will come**.
