@@ -10,28 +10,24 @@ data class OnboardingPageData(
 )
 
 val onboardingPages = listOf(
-
     OnboardingPageData(
         imageRes = R.drawable.img_onboarding_tracking,
-        title = "Track your bus live",
-        description = "See where your bus is on the map, which halt it is at, and how far it is from you."
+        title = "Track Your Bus Live",
+        description = "See real-time bus locations on the map, current halts, and accurate distance estimation."
     ),
-
     OnboardingPageData(
-        imageRes = R.drawable.img_onboarding_tracking,
-        title = "Know when it arrives",
-        description = "Get arrival times and alerts before your bus reaches your halt, so you never wait too long."
+        imageRes = R.drawable.img_onboarding_alerts,
+        title = "Know When It Arrives",
+        description = "Get precise arrival times and instant alerts before your bus reaches your halt."
     ),
-
     OnboardingPageData(
         imageRes = R.drawable.img_onboarding_tracking,
-        title = "Send & track parcels",
-        description = "Send your packages safely and quickly via buses on your route, and track their delivery status live."
+        title = "Send & Track Parcels",
+        description = "Dispatch packages safely and quickly via buses on your route, with live delivery tracking."
     ),
-
     OnboardingPageData(
-        imageRes = R.drawable.img_onboarding_tracking,
-        title = "Passengers & drivers, connected",
-        description = "Tell the driver you are waiting at a halt. Drivers see who is waiting and where other buses are."
+        imageRes = R.drawable.img_onboarding_alerts,
+        title = "Passengers & Drivers Connected",
+        description = "Notify drivers that you are waiting at a halt, while drivers monitor passenger demand."
     )
 )
