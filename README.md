@@ -2,8 +2,7 @@
 
 # 🚏 <span style="font-size: 2.5em;">NextHalt</span>
 
-<img width="1774" height="887" alt="banner" src="https://github.com/user-attachments/assets/9892244b-2840-4a3e-8158-5ddbf909774d" />
-
+<img width="100%" alt="NextHalt Preview" src="https://github.com/user-attachments/assets/3c5127eb-f181-4cd7-a2dc-67ff57c17d83" />
 
 ---
 
