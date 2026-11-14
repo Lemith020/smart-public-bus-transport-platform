@@ -198,6 +198,156 @@ fun DashboardScreen(
                 titleSi = "අසුන්වල තත්ත්වය",
                 titleEn = "Seat Occupancy",
                 titleTa = "இருக்கை நிலை",
+                subtitleSi = "සජීවී අසුන් ප්‍රමාණය",
+                subtitleEn = "Live Seat Availability",
+                subtitleTa = "இருக்கை நிலைமை",
+                icon = Icons.Default.EventSeat,
+                accentColor = Color(0xFFE040FB)
+            ),
+            DashboardCardItem(
+                id = "feedback_ratings",
+                titleSi = "ප්‍රතිචාර සහ ශ්‍රේණිගත කිරීම්",
+                titleEn = "Ratings & Reviews",
+                titleTa = "கருத்து & மதிப்பீடுகள்",
+                subtitleSi = "සේවා සමාලෝචන",
+                subtitleEn = "Service Reviews & Star Rate",
+                subtitleTa = "சேவை மதிப்பீடு",
+                icon = Icons.Default.Star,
+                accentColor = Color(0xFFFF9100)
+            )
+        )
+    }
+
+    Scaffold(
+        containerColor = Color.Transparent
+    ) { innerPadding ->
+
+        // Blue Gradient Background Container covering full screen
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(
+                            Color(0xFF0F172A), // Top Dark Slate Navy
+                            Color(0xFF0B1E38), // Rich Deep Blue
+                            Color(0xFF07172E), // Electric Navy Blue
+                            Color(0xFF030E1F)  // Dark Blue Base
+                        )
+                    )
+                )
+        ) {
+            // Smooth Scrollable Grid
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+                contentPadding = PaddingValues(bottom = 32.dp),
+                verticalArrangement = Arrangement.spacedBy(14.dp)
+            ) {
+
+                // Full Bleed Top Banner Header (Edge-to-Edge)
+                item(span = { GridItemSpan(2) }) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(250.dp)
+                            .clip(RoundedCornerShape(bottomStart = 28.dp, bottomEnd = 28.dp))
+                    ) {
+                        // Background Banner Image
+                        Image(
+                            painter = painterResource(id = R.drawable.banner),
+                            contentDescription = "NextHalt Banner",
+                            contentScale = ContentScale.Crop,
+                            modifier = Modifier.fillMaxSize()
+                        )
+
+                        // Smooth Dark Gradient Overlay (Scrim) Blending into Blue Background & Enhancing Text Readability
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(
+                                    Brush.verticalGradient(
+                                        colors = listOf(
+                                            Color.Black.copy(alpha = 0.85f),
+                                            Color.Black.copy(alpha = 0.40f),
+                                            Color(0xFF0F172A)
+                                        )
+                                    )
+                                )
+                        )
+
+                        // Embedded Header Content
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(horizontal = 18.dp, vertical = 16.dp),
+                            verticalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            // Top Row: Title/Subtitle (Left) + White Language Pill & Crisp Time/Date (Right - Matching Image)
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.Top
+                            ) {
+                                // App Title & Subtitle
+                                Column {
+                                    Row(verticalAlignment = Alignment.CenterVertically) {
+                                        Text(
+                                            text = "NextHalt",
+                                            fontSize = 26.sp,
+                                            fontWeight = FontWeight.ExtraBold,
+                                            color = Color.White,
+                                            letterSpacing = 0.5.sp
+                                        )
+                                        Spacer(modifier = Modifier.width(6.dp))
+                                        Box(
+                                            modifier = Modifier
+                                                .size(8.dp)
+                                                .clip(CircleShape)
+                                                .background(Color(0xFFFFD700)) // Yellow Accent Dot
+                                        )
+                                    }
+
+                                    Text(
+                                        text = when (currentLanguage) {
+                                            AppLanguage.SINHALA -> "වේගවත් ගමනකට"
+                                            AppLanguage.ENGLISH -> "Smart & Fast Transit"
+                                            AppLanguage.TAMIL -> "விரைவான பயணத்திற்கு"
+                                        },
+                                        fontSize = 13.sp,
+                                        fontWeight = FontWeight.Medium,
+                                        color = Color(0xFFFFD700), // Yellow Subtitle Accent
+                                        letterSpacing = 0.3.sp
+                                    )
+                                }
+
+                                // Right Side: White Language Switcher Pill & Crisp Time/Date (Matching Reference Image)
+                                Column(
+                                    horizontalAlignment = Alignment.End
+                                ) {
+                                    // Sleek White Language Button (A / අ Translate Card Style)
+                                    Box {
+                                        Surface(
+                                            onClick = { isLanguageMenuExpanded = true },
+                                            shape = RoundedCornerShape(10.dp),
+                                            color = Color(0xEEFFFFFF), // Crisp White Background
+                                            border = BorderStroke(1.dp, Color(0x33000000)),
+                                            modifier = Modifier.shadow(4.dp, RoundedCornerShape(10.dp))
+                                        ) {
+                                            Row(
+                                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 5.dp),
+                                                verticalAlignment = Alignment.CenterVertically
+                                            ) {
+                                                Icon(
+                                                    imageVector = Icons.Default.Translate,
+                                                    contentDescription = "Language Switcher",
+                                                    tint = Color(0xFF0F172A),
+                                                    modifier = Modifier.size(18.dp)
+                                                )
+                                                Spacer(modifier = Modifier.width(4.dp))
+                                                Text(
         }
     }
 }
