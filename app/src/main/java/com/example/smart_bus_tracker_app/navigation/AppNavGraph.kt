@@ -9,37 +9,33 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.smart_bus_tracker_app.ui.screens.splash.SplashScreen
+import com.example.smart_bus_tracker_app.ui.screens.dashboard.DashboardScreen
 import com.example.smart_bus_tracker_app.ui.screens.onboarding.OnboardingScreen
 
 @Composable
 fun AppNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = Screen.Splash.route
+        startDestination = Screen.Onboarding.route
     ) {
-
-        composable(route = Screen.Splash.route) {
-            SplashScreen(onNavigateNext = {
-
-                navController.navigate(Screen.Onboarding.route) {
-                    popUpTo(Screen.Splash.route) { inclusive = true }
-                }
-            })
-        }
-
 
         composable(route = Screen.Onboarding.route) {
             OnboardingScreen(
                 onFinishOnboarding = {
-
-                    navController.navigate(Screen.RoleSelection.route) {
+                    navController.navigate(Screen.Dashboard.route) {
                         popUpTo(Screen.Onboarding.route) { inclusive = true }
                     }
                 }
             )
         }
 
+        composable(route = Screen.Dashboard.route) {
+            DashboardScreen(
+                onCardClick = { _ ->
+                    // Reserved for feature screen navigations
+                }
+            )
+        }
 
         composable(route = Screen.RoleSelection.route) {
             Box(
