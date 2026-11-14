@@ -10,7 +10,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.smart_bus_tracker_app.ui.screens.splash.SplashScreen
-// import com.example.smart_bus_tracker_app.ui.screens.auth.RoleSelectionScreen
+import com.example.smart_bus_tracker_app.ui.screens.onboarding.OnboardingScreen
 
 @Composable
 fun AppNavGraph(navController: NavHostController) {
@@ -18,19 +18,30 @@ fun AppNavGraph(navController: NavHostController) {
         navController = navController,
         startDestination = Screen.Splash.route
     ) {
-        // 1. Splash Screen එක
+
         composable(route = Screen.Splash.route) {
             SplashScreen(onNavigateNext = {
 
-                navController.navigate(Screen.RoleSelection.route) {
+                navController.navigate(Screen.Onboarding.route) {
                     popUpTo(Screen.Splash.route) { inclusive = true }
                 }
             })
         }
 
 
-        composable(route = Screen.RoleSelection.route) {
+        composable(route = Screen.Onboarding.route) {
+            OnboardingScreen(
+                onFinishOnboarding = {
 
+                    navController.navigate(Screen.RoleSelection.route) {
+                        popUpTo(Screen.Onboarding.route) { inclusive = true }
+                    }
+                }
+            )
+        }
+
+
+        composable(route = Screen.RoleSelection.route) {
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
