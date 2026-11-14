@@ -84,7 +84,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/brand_next"
                         android:textColor="#FF1744"
-                        android:textSize="70sp"
+                        android:textSize="65sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -93,7 +93,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/brand_halt"
                         android:textColor="#FFFFFF"
-                        android:textSize="70sp"
+                        android:textSize="65sp"
                         android:textStyle="bold" />
 
                     <ImageView
@@ -125,7 +125,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/sinhala_tagline"
                     android:textColor="#FFFFFF"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
