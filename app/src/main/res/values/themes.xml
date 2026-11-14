@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.Smartbustrackerapp" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Smartbustrackerapp" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_window_bg</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">#0F172A</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@android:color/transparent</item>
+    </style>
 </resources>
