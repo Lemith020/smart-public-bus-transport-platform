@@ -97,3 +97,119 @@ data class DashboardCardItem(
     val accentColor: Color
 )
 
+
+@Composable
+fun GlassmorphismDashboardCard(
+    item: DashboardCardItem,
+    language: AppLanguage,
+    onClick: () -> Unit
+) {
+    val title = when (language) {
+        AppLanguage.SINHALA -> item.titleSi
+        AppLanguage.ENGLISH -> item.titleEn
+        AppLanguage.TAMIL -> item.titleTa
+    }
+
+    val subtitle = when (language) {
+        AppLanguage.SINHALA -> item.subtitleSi
+        AppLanguage.ENGLISH -> item.subtitleEn
+        AppLanguage.TAMIL -> item.subtitleTa
+    }
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(165.dp)
+            .shadow(
+                elevation = 8.dp,
+                shape = RoundedCornerShape(20.dp),
+                ambientColor = item.accentColor.copy(alpha = 0.35f),
+                spotColor = item.accentColor.copy(alpha = 0.5f)
+            )
+            .clickable { onClick() },
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color(0xDD1E293B) // Dark Translucent Glassmorphism background
+        ),
+        border = BorderStroke(1.2.dp, Color.White.copy(alpha = 0.15f)) // Translucent glass stroke
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(
+                            item.accentColor.copy(alpha = 0.22f), // Glowing top tint
+                            Color.Transparent
+                        )
+                    )
+                )
+                .padding(14.dp)
+        ) {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                // Top Row: Circle Glow Icon
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Surface(
+                        shape = CircleShape,
+                        color = item.accentColor.copy(alpha = 0.22f),
+                        border = BorderStroke(1.dp, item.accentColor.copy(alpha = 0.45f))
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .size(48.dp)
+                                .padding(10.dp),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Icon(
+                                imageVector = item.icon,
+                                contentDescription = title,
+                                tint = item.accentColor,
+                                modifier = Modifier.fillMaxSize()
+                            )
+                        }
+                    }
+
+                    // Indicator Accent Line
+                    Box(
+                        modifier = Modifier
+                            .width(20.dp)
+                            .height(3.dp)
+                            .clip(RoundedCornerShape(2.dp))
+                            .background(item.accentColor.copy(alpha = 0.8f))
+                    )
+                }
+
+                // Title & Subtitle Section
+                Column {
+                    Text(
+                        text = title,
+                        fontSize = 15.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
+                        lineHeight = 19.sp
+                    )
+
+                    Spacer(modifier = Modifier.height(4.dp))
+
+                    Text(
+                        text = subtitle,
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = Color(0xFFCBD5E1), // Crisp light text for glass readability
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
+            }
+        }
+    }
+}
