@@ -76,3 +76,11 @@ enum class AppLanguage(val code: String, val label: String, val flag: String) {
     TAMIL("ta", "தமிழ்", "🇱🇰")
 }
 
+// Route Option Model
+data class RouteOption(
+    val id: String,
+    val titleSi: String,
+    val titleEn: String,
+    val titleTa: String
+)
+
