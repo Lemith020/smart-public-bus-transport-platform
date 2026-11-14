@@ -97,6 +97,110 @@ data class DashboardCardItem(
     val accentColor: Color
 )
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun DashboardScreen(
+    onCardClick: (String) -> Unit = {}
+) {
+    val context = LocalContext.current
+    var currentLanguage by remember { mutableStateOf(AppLanguage.SINHALA) }
+    var isLanguageMenuExpanded by remember { mutableStateOf(false) }
+    var isRouteMenuExpanded by remember { mutableStateOf(false) }
+
+    // Route Options
+    val routes = remember {
+        listOf(
+            RouteOption("r1", "ප්‍රධාන මාර්ගය (කොළඹ - මහනුවර)", "Main Line (Colombo - Kandy)", "பிரதான பாதை (கொழும்பு - கண்டி)"),
+            RouteOption("r2", "දකුණු අධිවේගී මාර්ගය (මාතර)", "Southern Expressway (Matara)", "தெற்கு அதிவேக பாதை (மாத்தறை)"),
+            RouteOption("r3", "මුහුදුබඩ මාර්ගය (කොළඹ - ගාල්ල)", "Coastal Line (Colombo - Galle)", "கடற்கரை பாதை (கொழும்பு - காலி)"),
+            RouteOption("r4", "උතුරු මාර්ගය (කොළඹ - යාපනය)", "Northern Line (Colombo - Jaffna)", "வடக்கு பாதை (கொழும்பு - யாழ்ப்பாணம்)")
+        )
+    }
+    var selectedRoute by remember { mutableStateOf(routes[0]) }
+
+    // Clock State
+    var currentTimeString by remember { mutableStateOf("") }
+    var currentDateString by remember { mutableStateOf("") }
+
+    // Live clock ticker formatted to match reference image (e.g. "ප.ව. 09:28" and "සෙනසුරාදා 2026.11.14")
+    LaunchedEffect(currentLanguage) {
+        while (true) {
+            val locale = Locale.forLanguageTag(currentLanguage.code)
+            val now = Date()
+            if (currentLanguage == AppLanguage.SINHALA) {
+                val isPm = SimpleDateFormat("a", Locale.US).format(now).uppercase() == "PM"
+                val amPmStr = if (isPm) "ප.ව." else "පෙ.ව."
+                val timeDigits = SimpleDateFormat("hh:mm", Locale.US).format(now)
+                currentTimeString = "$amPmStr $timeDigits"
+
+                val dayName = SimpleDateFormat("EEEE", locale).format(now)
+                val dateDigits = SimpleDateFormat("yyyy.MM.dd", Locale.US).format(now)
+                currentDateString = "$dayName $dateDigits"
+            } else {
+                val timeFormat = SimpleDateFormat("hh:mm a", locale)
+                val dateFormat = SimpleDateFormat("EEEE yyyy.MM.dd", locale)
+                currentTimeString = timeFormat.format(now)
+                currentDateString = dateFormat.format(now)
+            }
+            delay(1000L)
+        }
+    }
+
+    // Dashboard Cards List
+    val cards = remember {
+        listOf(
+            DashboardCardItem(
+                id = "live_tracking",
+                titleSi = "සජීවී බස් ලුහුබැඳීම",
+                titleEn = "Live Bus Tracking",
+                titleTa = "நேரடி பேருந்து கண்காணிப்பு",
+                subtitleSi = "GPS සහ පැමිණීමේ වේලාව",
+                subtitleEn = "Real-time GPS & ETA",
+                subtitleTa = "நேரலை ஜிபிஎஸ் & வருகை",
+                icon = Icons.Default.LocationOn,
+                accentColor = Color(0xFF00E5FF)
+            ),
+            DashboardCardItem(
+                id = "waiting_board",
+                titleSi = "මගී රැඳී සිටින මධ්‍යස්ථාන",
+                titleEn = "Nearby Bus Halts",
+                titleTa = "காத்திருக்கும் பஸ் நிறுத்தம்",
+                subtitleSi = "නැවතුම්පොළ සහ මගී තත්ත්වය",
+                subtitleEn = "Halts & Passenger Status",
+                subtitleTa = "பஸ் நிறுத்த நிலை",
+                icon = Icons.Default.DirectionsBus,
+                accentColor = Color(0xFFFF1744)
+            ),
+            DashboardCardItem(
+                id = "police_alerts",
+                titleSi = "පොලිස් සහ හදිසි දැනුම්දීම්",
+                titleEn = "Police & Incidents",
+                titleTa = "காவல் & அவசர எச்சரிக்கைகள்",
+                subtitleSi = "මාර්ග සහ ආරක්ෂක ඇලර්ට්",
+                subtitleEn = "Traffic & Safety Notices",
+                subtitleTa = "போக்குவரத்து & பாதுகாப்பு",
+                icon = Icons.Default.Shield,
+                accentColor = Color(0xFFFFB300)
+            ),
+            DashboardCardItem(
+                id = "parcel_service",
+                titleSi = "පාර්සල් සේවාව",
+                titleEn = "Parcel Cargo Service",
+                titleTa = "பார்சல் சேவை",
+                subtitleSi = "පාර්සල් යැවීම සහ පරීක්ෂාව",
+                subtitleEn = "Send & Track Packages",
+                subtitleTa = "பார்சல் கண்காணிப்பு",
+                icon = Icons.Default.LocalShipping,
+                accentColor = Color(0xFF00E676)
+            ),
+            DashboardCardItem(
+                id = "seat_status",
+                titleSi = "අසුන්වල තත්ත්වය",
+                titleEn = "Seat Occupancy",
+                titleTa = "இருக்கை நிலை",
+        }
+    }
+}
 
 @Composable
 fun GlassmorphismDashboardCard(
