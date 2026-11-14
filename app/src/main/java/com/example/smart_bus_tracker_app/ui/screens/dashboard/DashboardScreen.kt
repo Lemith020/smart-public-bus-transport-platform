@@ -84,3 +84,16 @@ data class RouteOption(
     val titleTa: String
 )
 
+// Dashboard Card Item Model
+data class DashboardCardItem(
+    val id: String,
+    val titleSi: String,
+    val titleEn: String,
+    val titleTa: String,
+    val subtitleSi: String,
+    val subtitleEn: String,
+    val subtitleTa: String,
+    val icon: ImageVector,
+    val accentColor: Color
+)
+
