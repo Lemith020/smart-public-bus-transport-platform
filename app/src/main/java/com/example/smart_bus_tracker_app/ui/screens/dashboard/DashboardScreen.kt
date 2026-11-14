@@ -348,6 +348,156 @@ fun DashboardScreen(
                                                 )
                                                 Spacer(modifier = Modifier.width(4.dp))
                                                 Text(
+                                                    text = currentLanguage.code.uppercase(),
+                                                    fontSize = 12.sp,
+                                                    fontWeight = FontWeight.ExtraBold,
+                                                    color = Color(0xFF0F172A)
+                                                )
+                                            }
+                                        }
+
+                                        DropdownMenu(
+                                            expanded = isLanguageMenuExpanded,
+                                            onDismissRequest = { isLanguageMenuExpanded = false },
+                                            modifier = Modifier.background(Color(0xFF1E293B))
+                                        ) {
+                                            AppLanguage.entries.forEach { lang ->
+                                                DropdownMenuItem(
+                                                    text = {
+                                                        Text(
+                                                            text = "${lang.flag}  ${lang.label}",
+                                                            color = if (lang == currentLanguage) Color(0xFF00E5FF) else Color.White,
+                                                            fontWeight = if (lang == currentLanguage) FontWeight.Bold else FontWeight.Normal
+                                                        )
+                                                    },
+                                                    onClick = {
+                                                        currentLanguage = lang
+                                                        isLanguageMenuExpanded = false
+                                                    }
+                                                )
+                                            }
+                                        }
+                                    }
+
+                                    Spacer(modifier = Modifier.height(10.dp))
+
+                                    // Crisp White Sinhala Time (e.g. "ප.ව. 09:28") with High Contrast Shadow
+                                    Text(
+                                        text = currentTimeString.ifEmpty { "ප.ව. 09:28" },
+                                        fontSize = 24.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color.White,
+                                        style = TextStyle(
+                                            shadow = Shadow(
+                                                color = Color.Black.copy(alpha = 0.9f),
+                                                blurRadius = 8f
+                                            )
+                                        )
+                                    )
+
+                                    Spacer(modifier = Modifier.height(2.dp))
+
+                                    // Crisp White Sinhala Date (e.g. "සෙනසුරාදා 2026.11.14") with High Contrast Shadow
+                                    Text(
+                                        text = currentDateString.ifEmpty { "සෙනසුරාදා 2026.11.14" },
+                                        fontSize = 13.sp,
+                                        fontWeight = FontWeight.Medium,
+                                        color = Color.White.copy(alpha = 0.95f),
+                                        style = TextStyle(
+                                            shadow = Shadow(
+                                                color = Color.Black.copy(alpha = 0.9f),
+                                                blurRadius = 6f
+                                            )
+                                        )
+                                    )
+                                }
+                            }
+
+                            // Bottom Banner Section: Route Selection Dropdown Pill
+                            Box(
+                                modifier = Modifier.fillMaxWidth(),
+                                contentAlignment = Alignment.BottomStart
+                            ) {
+                                Surface(
+                                    onClick = { isRouteMenuExpanded = true },
+                                    shape = RoundedCornerShape(24.dp),
+                                    color = Color(0xDD0F172A),
+                                    border = BorderStroke(1.2.dp, Color(0xFFFFD700).copy(alpha = 0.85f)),
+                                    modifier = Modifier.shadow(10.dp, RoundedCornerShape(24.dp))
+                                ) {
+                                    Row(
+                                        modifier = Modifier.padding(horizontal = 14.dp, vertical = 9.dp),
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.SpaceBetween
+                                    ) {
+                                        Row(
+                                            verticalAlignment = Alignment.CenterVertically,
+                                            modifier = Modifier.weight(1f, fill = false)
+                                        ) {
+                                            Box(
+                                                modifier = Modifier
+                                                    .size(10.dp)
+                                                    .clip(CircleShape)
+                                                    .background(Color(0xFFFFD700))
+                                            )
+                                            Spacer(modifier = Modifier.width(8.dp))
+                                            Text(
+                                                text = when (currentLanguage) {
+                                                    AppLanguage.SINHALA -> selectedRoute.titleSi
+                                                    AppLanguage.ENGLISH -> selectedRoute.titleEn
+                                                    AppLanguage.TAMIL -> selectedRoute.titleTa
+                                                },
+                                                fontSize = 13.sp,
+                                                fontWeight = FontWeight.SemiBold,
+                                                color = Color.White,
+                                                maxLines = 1,
+                                                overflow = TextOverflow.Ellipsis
+                                            )
+                                        }
+                                        Spacer(modifier = Modifier.width(8.dp))
+                                        Icon(
+                                            imageVector = Icons.Default.ArrowDropDown,
+                                            contentDescription = "Select Route",
+                                            tint = Color(0xFFFFD700),
+                                            modifier = Modifier.size(20.dp)
+                                        )
+                                    }
+                                }
+
+                                DropdownMenu(
+                                    expanded = isRouteMenuExpanded,
+                                    onDismissRequest = { isRouteMenuExpanded = false },
+                                    modifier = Modifier
+                                        .fillMaxWidth(0.9f)
+                                        .background(Color(0xFF1E293B))
+                                ) {
+                                    routes.forEach { route ->
+                                        val title = when (currentLanguage) {
+                                            AppLanguage.SINHALA -> route.titleSi
+                                            AppLanguage.ENGLISH -> route.titleEn
+                                            AppLanguage.TAMIL -> route.titleTa
+                                        }
+                                        DropdownMenuItem(
+                                            text = {
+                                                Text(
+                                                    text = title,
+                                                    color = if (route == selectedRoute) Color(0xFFFFD700) else Color.White,
+                                                    fontWeight = if (route == selectedRoute) FontWeight.Bold else FontWeight.Normal
+                                                )
+                                            },
+                                            onClick = {
+                                                selectedRoute = route
+                                                isRouteMenuExpanded = false
+                                                Toast.makeText(context, title, Toast.LENGTH_SHORT).show()
+                                            }
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
         }
     }
 }
