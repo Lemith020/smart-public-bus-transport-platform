@@ -1,8 +1,12 @@
 <div align="center">
 
-# 🚌 Bus Tracker
+# 🚏 <span style="font-size: 2.5em;">NextHalt</span>
 
-### Know where your bus is. Tell the driver you are waiting at the halt.
+<img width="100%" alt="NextHalt Preview" src="https://github.com/user-attachments/assets/3c5127eb-f181-4cd7-a2dc-67ff57c17d83" />
+
+---
+
+### **Know where your bus is. Tell the driver you are waiting at the halt.**
 
 An Android app and a backend server that connect passengers and bus drivers in real time.
 
@@ -35,6 +39,13 @@ An Android app and a backend server that connect passengers and bus drivers in r
 ---
 
 ## 1. 🎯 About the Project
+
+<div align="center">
+  <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 32px; overflow-x: auto; padding: 12px 0;">
+    <img src="https://github.com/user-attachments/assets/83b18f11-549d-40c9-b3f5-b179272f7410" alt="NextHalt UI Concept 1" width="260" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+    <img src="https://github.com/user-attachments/assets/ddebe7a8-b4aa-49ca-ba7e-bbd7ff1fdada" alt="NextHalt UI Concept 2" width="260" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+  </div>
+</div>
 
 ### The problem
 - A passenger does not know **where the bus is** or **when it will come**.
@@ -882,9 +893,9 @@ docker compose up -d db
 
 | Role | Responsibility | Name |
 |---|---|---|
-| 🎨 UI/UX Designer | Pages, components, design tokens (Figma) | _Name_ |
-| 🖥️ Backend Developer | Ktor server, database, API, project structure | _Name_ |
-| 📱 Android Developer | Compose screens, features | _Name_ |
+| 🎨 UI/UX Designer | Pages, components, design tokens (Figma) | Dulana Chathurma |
+| 🖥️ Backend Developer | Ktor server, database, API, project structure | W.D.Lemith  Nanditha |
+| 📱 Android Developer | Compose screens, features |W.D.Lemith  Nanditha &   Dulana Chathurma  |
 
 ### Git Workflow
 - `main`: stable, release

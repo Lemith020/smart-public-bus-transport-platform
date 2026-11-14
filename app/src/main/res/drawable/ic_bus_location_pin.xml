@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Outer White Road Curve -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M15,85 C45,95 85,80 95,50 C98,42 92,40 88,48 C75,70 40,82 15,85 Z" />
+
+    <!-- Road Base (Black) -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M18,83 C46,92 83,78 92,51 C90,53 74,70 40,80 C28,83 18,83 18,83 Z" />
+
+    <!-- White Road Center Dashes -->
+    <path
+        android:pathData="M24,81 C36,83 50,81 64,75 M72,70 C78,65 82,60 86,55"
+        android:strokeWidth="2.5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+
+    <!-- Pin White Outer Outline -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48,5 C25,5 10,22 10,42 C10,58 35,78 48,88 C61,78 86,58 86,42 C86,22 71,5 48,5 Z" />
+
+    <!-- Pin Black Background -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M48,9 C28,9 14,24 14,42 C14,55 37,74 48,83 C59,74 82,55 82,42 C82,24 68,9 48,9 Z" />
+
+    <!-- Inner Bus Icon (White Body) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M34,25 C31,25 29,27 29,30 L29,52 C29,55 31,57 34,57 L34,60 C34,61.5 35.5,62.5 37,62.5 L39,62.5 C40.5,62.5 41.5,61.5 41.5,60 L41.5,57 L54.5,57 L54.5,60 C54.5,61.5 55.5,62.5 57,62.5 L59,62.5 C60.5,62.5 62,61.5 62,60 L62,57 C65,57 67,55 67,52 L67,30 C67,27 65,25 62,25 Z" />
+
+    <!-- Windshield / Window (Black cutout) -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M34,29 L62,29 C63,29 64,30 64,31 L64,40 C64,41 63,42 62,42 L34,42 C33,42 32,41 32,40 L32,31 C32,30 33,29 34,29 Z" />
+
+    <!-- Left Headlight (Black) -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M36,50 A3,3 0 1,0 36,50.01 Z" />
+
+    <!-- Right Headlight (Black) -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M60,50 A3,3 0 1,0 60,50.01 Z" />
+
+</vector>
