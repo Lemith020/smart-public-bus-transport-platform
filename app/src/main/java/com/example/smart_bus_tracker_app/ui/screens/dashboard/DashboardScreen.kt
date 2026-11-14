@@ -498,6 +498,55 @@ fun DashboardScreen(
                     }
                 }
 
+                // Section Header Title
+                item(span = { GridItemSpan(2) }) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 16.dp, end = 16.dp, top = 10.dp, bottom = 4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .width(4.dp)
+                                .height(18.dp)
+                                .clip(RoundedCornerShape(2.dp))
+                                .background(Color(0xFF00E5FF))
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = when (currentLanguage) {
+                                AppLanguage.SINHALA -> "ප්‍රධාන සේවාවන්"
+                                AppLanguage.ENGLISH -> "Main Services"
+                                AppLanguage.TAMIL -> "முக்கிய சேவைகள்"
+                            },
+                            fontSize = 17.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                    }
+                }
+
+                // Prominent Feature Grid Cards (Padded Grid Items)
+                items(cards) { item ->
+                    Box(
+                        modifier = Modifier.padding(horizontal = 8.dp)
+                    ) {
+                        GlassmorphismDashboardCard(
+                            item = item,
+                            language = currentLanguage,
+                            onClick = {
+                                Toast.makeText(
+                                    context,
+                                    "Navigating to ${item.titleEn}",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                onCardClick(item.id)
+                            }
+                        )
+                    }
+                }
+            }
         }
     }
 }
