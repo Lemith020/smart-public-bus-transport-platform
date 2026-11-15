@@ -4,7 +4,6 @@
 
 <img width="1774" height="887" alt="banner" src="https://github.com/user-attachments/assets/fb086482-902b-4f36-a697-2872876bebb3" />
 
-
 ---
 
 ### **Know where your bus is. Tell the driver you are waiting at the halt.**
